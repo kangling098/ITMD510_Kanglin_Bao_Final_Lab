@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: bbbdbd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+   <children>
+      <Label layoutX="26.0" layoutY="22.0" text="Admin Operation" textFill="#194321">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Button layoutX="26.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleAddPanel" text="Add Food" />
+      <Button layoutX="26.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleViewPanel" text="View Foods" />
+      <Button layoutX="26.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleUpdatePanel" text="Update Food" />
+      <Button layoutX="25.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleDeletePanel" text="Delete Food" />
+      <Button layoutX="25.0" layoutY="272.0" mnemonicParsing="false" onAction="#initialFoodMenu" prefHeight="27.0" prefWidth="115.0" text="Initial Food Menu" />
+      <Pane fx:id="viewFoodPanel" layoutX="176.0" layoutY="65.0" prefHeight="282.0" prefWidth="375.0" style="-fx-border-color: Black; -fx-border-width: 1;" visible="false">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+         <children>
+            <TableView fx:id="viewFoodTable" prefHeight="282.0" prefWidth="375.0">
+              <columns>
+                <TableColumn fx:id="pidColumn" prefWidth="75.0" text="PID" />
+                <TableColumn fx:id="nameColumn" prefWidth="154.0" text="NAME" />
+                 <TableColumn fx:id="priceColumn" prefWidth="145.0" text="PRICE" />
+              </columns>
+            </TableView>
+         </children> 
+      </Pane>
+      <Pane fx:id="updateFoodPanel" layoutX="176.0" layoutY="65.0" prefHeight="282.0" prefWidth="375.0" style="-fx-border-color: Black; -fx-border-width: 1;" visible="false">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+         <children>
+            <Button layoutX="140.0" layoutY="229.0" mnemonicParsing="false" onAction="#submitUpdateFood" text="Update price" />
+            <TextField fx:id="updatePrice" layoutX="104.0" layoutY="151.0" />
+            <TextField fx:id="updateId" layoutX="104.0" layoutY="48.0" />
+            <Label layoutX="109.0" layoutY="22.0" text="Update ID" />
+            <Label layoutX="109.0" layoutY="109.0" text="new Price" />
+            <Label fx:id="updateLabel" layoutX="14.0" layoutY="234.0" text="" textFill="#803131" />
+         </children> 
+      </Pane>
+      <Pane fx:id="deleteFoodPanel" layoutX="176.0" layoutY="65.0" prefHeight="282.0" prefWidth="375.0" style="-fx-border-color: Blue; -fx-border-width: 1;" visible="false">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+         <children>
+            <Button layoutX="145.0" layoutY="171.0" mnemonicParsing="false" onAction="#submitDeleteFood" text="Delete Food" />
+            <TextField fx:id="deleteId" layoutX="105.0" layoutY="93.0" />
+            <Label fx:id="deleteLabel" layoutX="14.0" layoutY="176.0" text="Record Deleted?" textFill="#803131" />
+            <Label layoutX="26.0" layoutY="98.0" prefHeight="17.0" prefWidth="71.0" text="delete pid" />
+         </children>
+      </Pane>
+      
+      <Pane fx:id="addFoodPanel" layoutX="176.0" layoutY="65.0" prefHeight="282.0" prefWidth="375.0" style="-fx-border-color: #bbccff; -fx-border-width: 1;">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+         <children>
+            <Button layoutX="145.0" layoutY="171.0" mnemonicParsing="false" onAction="#submitAddFood" text="Add Food" />
+            <TextField fx:id="name" layoutX="92.0" layoutY="71.0" />
+            <Label layoutX="92.0" layoutY="25.0" text="Add Food" />
+            <TextField fx:id="price" layoutX="92.0" layoutY="114.0" />
+            <Label layoutX="21.0" layoutY="76.0" text="Name" />
+            <Label layoutX="21.0" layoutY="119.0" text="Price" />
+            <Label fx:id="addFoodLabel" layoutX="33.0" layoutY="176.0" />
+         </children>
+      </Pane>
+      
+   </children>
+</AnchorPane>
